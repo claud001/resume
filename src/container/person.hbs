@@ -1,0 +1,93 @@
+<div>
+    {{#with person}}
+    <main>
+        <section>
+            <h1> {{name}} </h1>
+            <p>{{age}}, {{gender}} </p>
+            <hr>
+            <h2>Address:</h2>
+            <div>
+                {{#each address}}
+                <address>{{this}}</address>
+                {{/each}}
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <h2>Education:</h2>
+                {{#each education}}
+                <p>{{this}}</p>
+                {{/each}}
+            </div>
+            <hr>
+        </section>
+
+        <section>
+            <h2>Work Experience:</h2>
+            {{#each workExperience}}
+            <b>{{company}}</b>, {{title}}
+            <div>{{startDate}} - {{endDate}}</div>
+            <P>Обов'язки:</P>
+            {{#each responsibilities}}
+            <ul>
+                <li>{{this}}</li>
+            </ul>
+            {{/each}}
+            <div>
+                <p>Дата заснування - {{year_founded}}, Галузь - {{industry}}</p>
+            </div>
+            {{#each employees}}
+            <h3>Працівники:</h3>
+            <div>
+                <p>{{name}}, {{position}}, {{department}}</p>
+            </div>
+            <hr>
+            <h3>Проекти:</h3>
+            {{#each projects}}
+            <h4>{{name}}</h4>
+            <p>{{description}} - {{status}}</p>
+            {{#each teams}}
+            <div>
+                <u>Наставники</u>
+                <p>{{team_name}}</p>
+                {{#with team_leader}}
+                <div>
+                    <p>{{name}}, {{title}}</p>
+                    <a href="mailto:john.smith@example.com" target="_blank">john.smith@example.com</a>
+                </div>
+                {{/with}}
+            </div>
+            <hr>
+
+            <div>
+                {{#each team_members}}
+                <div>
+                    <p>{{name}}, {{title}}</p>
+                    <a href="mailto:alice.johnson@example.com" target="_blank">alice.johnson@example.com</a><br>
+                    <p>{{skills}}</p>
+                    <hr>
+                    {{#each projects}}
+                    <p>{{name}}</p>
+                    <p>{{description}}</p>
+                    <p>{{technologies}}</p>
+                    {{#each team_members}}
+                    <p>{{name}} - {{title}}</p>
+                    {{/each}}
+                    {{/each}}
+                </div>
+                {{/each}}
+            </div>
+
+            {{/each}}
+
+            {{/each}}
+
+            {{/each}}
+
+            {{/each}}
+        </section>
+
+    </main>
+    {{/with}}
+</div>
