@@ -1,0 +1,50 @@
+<div>
+
+    {{#with program.excursion}}
+    <main>
+        <section>
+            <h1> {{name}}</h1>
+            <u>Location:</u>
+            <h2>{{location.city}}, {{location.country}}</h2>
+            <p>Дата проведення: {{date}}</p>
+            <hr>
+            <div>
+                <h2> <u> Excursion program: </u></h2>
+                {{#each program}}
+                <h3>{{name}}</h3>
+                <p>{{type}}, time: {{duration}}</p>
+                {{#with details.guide}}
+                <h4>Guide: {{name}}, {{language}}, Rating: {{rating}}</h4>
+                {{/with}}
+                {{/each}}
+                <div>
+                    <h3>Performers:</h3>
+                    {{#each program}}
+                    {{#with details}}
+                    {{#each performers}}
+                    <p>{{name}}{{type}}</p>
+                    {{/each}}
+                    {{/with}}
+                    {{/each}}
+                </div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>Details</h3>
+                {{#each program}}
+                <h3>{{details.museum.name}}</h3>
+                {{#with details.museum.location}}
+                <p>{{address}}, {{city}}, {{country}}</p>
+                {{/with}}
+                {{#each details.museum.exhibits}}
+                <p>{{name}}, {{artist}}, {{description}}, {{#if audio_guide includeZero=true}} <b> Audio Guide</b>
+                    {{/if}}</p>
+                {{/each}}
+                {{/each}}
+                <hr>
+            </div>
+        </section>
+    </main>
+    {{/with}}
+</div>
