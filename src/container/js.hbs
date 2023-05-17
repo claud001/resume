@@ -1,0 +1,75 @@
+<div>
+
+	<h1>{{description}}</h1>
+	{{#with history}}
+	<p>{{year}}, {{founder}}</p>
+	{{/with}}
+
+
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			Типи даних:
+		</button>
+		<ul class="dropdown-menu">
+			{{#each types}}
+			<li><a class="dropdown-item" href="#">{{this}}</a></li>
+			{{/each}}
+		</ul>
+	</div>
+	<br>
+	<hr>
+	<div class="alert alert-primary" role="alert">
+		<div>
+			<h3>Syntax</h3>
+			<ol>
+				{{#with syntax}}
+				<li>{{variables}}</li>
+				<li>{{functions}}</li>
+				<li>{{conditionals}}</li>
+				<li>{{loops}}</li>
+				<li>{{classes}}</li>
+				{{/with}}
+			</ol>
+		</div>
+	</div>
+
+	<hr>
+	<div>
+		<h3>Features</h3>
+		<ul class="list-group list-group-flush">
+			{{#each features}}
+			<li class="list-group-item">{{this}}</li>
+			{{/each}}
+		</ul>
+	</div>
+	<hr>
+
+	<div>
+		<h3>Libraries</h3>
+		{{#each libraries}}
+		<button type="button" class="btn btn-success">{{this}}</button>
+		{{/each}}
+	</div>
+	<br>
+	<hr>
+
+	<div>
+		<h3>Tools</h3>
+		{{#each tools}}
+		<button type="button" class="btn btn-info">{{this}}</button>
+		{{/each}}
+	</div>
+	<br>
+	<hr>
+
+	<div>
+		<h3>Community</h3>
+		{{#each community}}
+		<ul>
+			<li>{{name}}, {{type}}</li>
+		</ul>
+		{{/each}}
+	</div>
+
+
+</div>
