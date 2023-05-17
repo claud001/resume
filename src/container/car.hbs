@@ -1,0 +1,183 @@
+<div>
+    <br>
+    <h1><span class="badge bg-secondary">{{make}} {{model}}</span></h1>
+    <h2>Year: {{year}}, Color: {{color}}</h2>
+
+
+
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseOne">
+                    <h2>Interior</h2>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    <ul>
+                        <h4>Seats:</h4>
+                        {{#with features.interior.seats}}
+
+                        <div>
+                            <li>Material: {{material}}</li>
+                            <li>Color: {{color}}</li>
+                            <li>Headed: {{#if heated}} (+) {{/if}}</li>
+                            <li>Ventilated: {{#if ventilated}} (+) {{/if}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                    <ul>
+                        <h4>Dashboard:</h4>
+                        {{#with features.interior.dashboard}}
+                        <div>
+                            <li>Material: {{material}}</li>
+                            <li>Color: {{color}}</li>
+                            {{#with display}}
+                            <li>Display: {{type}}, {{size}}, {{resolution}}, Touchscreen: {{#if touchscreen}} (+)
+                                {{/if}}</li>
+                            {{/with}}
+                        </div>
+                        {{/with}}
+                    </ul>
+                    <ul>
+                        <h4>Audio:</h4>
+                        {{#with features.interior.audio}}
+                        <div>
+                            <li>System: {{system}}</li>
+                            <li>Speakers: {{speakers}}</li>
+                            <li>Subwoofer: {{#if subwoofer}} (+) {{/if}}</li>
+                            <li>Bluetooth: {{#if bluetooth}} (+) {{/if}}</li>
+                            <li>USB: {{#if USB}} (+) {{/if}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseTwo">
+                    <h2>Exterior</h2>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <h4>Wheels:</h4>
+                        {{#with features.exterior.wheels}}
+                        <div>
+                            <li>Size: {{size}}</li>
+                            <li>Type: {{type}}</li>
+                            <li>Color: {{color}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                    <ul>
+                        <h4>Headlights:</h4>
+                        {{#with features.exterior.headlights}}
+                        <div>
+                            <li>Type: {{type}}</li>
+                            <li>Brightness: {{brightness}}</li>
+                            <li>Automatic: {{#if automatic}} (+) {{/if}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                    <ul>
+                        <h4>Sunroof:</h4>
+                        {{#with features.exterior.sunroof}}
+                        <div>
+                            <li>Type: {{type}}</li>
+                            <li>Size: {{size}}</li>
+                            <li>Automatic: {{#if automatic}} (+) {{/if}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseThree">
+                    <h2>Safety</h2>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <h4>Airbags:</h4>
+                        {{#with features.safety.airbags}}
+                        <div>
+                            <li>Front: {{front}}</li>
+                            <li>Side: {{side}}</li>
+                            <li>Knee: {{knee}}</li>
+                            <li>Rear: {{rear}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                    <ul>
+                        <h4>Assistance:</h4>
+                        {{#with features.safety.assistance}}
+                        <div>
+                            <li>Blind_spot_monitoring: {{#if blind_spot_monitoring}} (+) {{/if}}</li>
+                            <li>Rear_cross_traffic_alert: {{#if rear_cross_traffic_alert}} (+) {{/if}}</li>
+                            <li>Lane_departure_warning: {{#if lane_departure_warning}} (+) {{/if}}</li>
+                            <li>Adaptive_cruise_control: {{#if adaptive_cruise_control}} (+) {{/if}}</li>
+                            <li>Collision_warning: {{#if collision_warning}} (+) {{/if}}</li>
+                        </div>
+                        {{/with}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <ul>
+        <h4>Engine:</h4>
+        {{#with engine}}
+        <div>
+            <li>Type: {{type}}</li>
+            <li>Displacement: {{displacement}}</li>
+            <li>Horsepower: {{horsepower}}</li>
+            <li>Torque: {{torque}}</li>
+            <li>Transmission: {{transmission.type}}, {{transmission.gears}} gears</li>
+        </div>
+        {{/with}}
+    </ul>
+    <ul>
+        <h4>Fuel economy:</h4>
+        {{#with fuel_economy}}
+        <div>
+            <li>City: {{city}}</li>
+            <li>Highway: {{highway}}</li>
+            <li>Combined: {{combined}}</li>
+        </div>
+        {{/with}}
+    </ul>
+    <hr>
+    <ul>
+        <h4>Price:</h4>
+        {{#with price}}
+        <div>
+            <li>Base: {{base}}</li>
+            <li>Destination: {{destination}}</li>
+            <ul>
+                <h5>Options:</h5>
+                {{#with options}}
+                <li>Navigation: {{navigation}}</li>
+                <li>Moonroof: {{moonroof}}</li>
+                <li>Premium_paint: {{premium_paint}}</li>
+                {{/with}}
+            </ul>
+            <hr>
+            <b>TOTAL PRICE: {{total}}</b>
+        </div>
+        {{/with}}
+    </ul>
+</div>
