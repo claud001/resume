@@ -25,6 +25,7 @@
                             <li>{{name}}, {{type}}</li>
                             {{/each}}
 
+
                         </ul>
                         {{#with details.museum}}
                         <h3>{{name}}</h3>
@@ -42,6 +43,24 @@
                             </li>
 
                         </ul>
+                        </ul>
+                        {{#with details.museum}}
+                        <h3>{{name}}</h3>
+                        <p>{{location.address}}, {{location.city}}, {{location.country}}</p>
+                        <i>Exhibits:</i>
+                        {{#each exhibits}}
+                        <ul>
+                            <li>
+                                <p><b>{{name}}</b></p>
+                                <p>{{artist}}</p>
+                                <p>{{description}}</p>
+                                {{#if audio_guide includeZero=true}}
+                                <b>(Audio guide)</b>
+                                {{/if}}</p>
+                            </li>
+
+                        </ul>
+
                         {{/each}}
                         {{/with}}
 
