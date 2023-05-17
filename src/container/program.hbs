@@ -1,49 +1,59 @@
 <div>
-
     {{#with program.excursion}}
     <main>
         <section>
-            <h1> {{name}}</h1>
-            <u>Location:</u>
-            <h2>{{location.city}}, {{location.country}}</h2>
+            <h1> Name: {{name}}</h1>
+            <p>{{location.city}}, {{location.country}}</p>
             <p>Дата проведення: {{date}}</p>
             <hr>
             <div>
                 <h2> <u> Excursion program: </u></h2>
-                {{#each program}}
-                <h3>{{name}}</h3>
-                <p>{{type}}, time: {{duration}}</p>
-                {{#with details.guide}}
-                <h4>Guide: {{name}}, {{language}}, Rating: {{rating}}</h4>
-                {{/with}}
-                {{/each}}
-                <div>
-                    <h3>Performers:</h3>
+                <ul>
                     {{#each program}}
-                    {{#with details}}
-                    {{#each performers}}
-                    <p>{{name}}{{type}}</p>
-                    {{/each}}
-                    {{/with}}
-                    {{/each}}
-                </div>
-                <hr>
-            </div>
+                    <li>
+                        <h3>{{name}}</h3>
+                        <p>Type: {{type}}</p>
+                        <p>Duration: {{duration}}</p>
+                        {{#with details.venue}}
+                        <b>{{name}}</b>
+                        {{#with location}}
+                        <address>{{address}}, {{city}}, {{country}}</address>
+                        {{/with}}
+                        {{/with}}
+                        <ul>
+                            {{#each details.performers}}
+                            <li>{{name}}, {{type}}</li>
+                            {{/each}}
 
-            <div>
-                <h3>Details</h3>
-                {{#each program}}
-                <h3>{{details.museum.name}}</h3>
-                {{#with details.museum.location}}
-                <p>{{address}}, {{city}}, {{country}}</p>
-                {{/with}}
-                {{#each details.museum.exhibits}}
-                <p>{{name}}, {{artist}}, {{description}}, {{#if audio_guide includeZero=true}} <b> Audio Guide</b>
-                    {{/if}}</p>
-                {{/each}}
-                {{/each}}
-                <hr>
-            </div>
+                        </ul>
+                        {{#with details.museum}}
+                        <h3>{{name}}</h3>
+                        <p>{{location.address}}, {{location.city}}, {{location.country}}</p>
+                        <i>Exhibits:</i>
+                        {{#each exhibits}}
+                        <ul>
+                            <li>
+                                <p><b>{{name}}</b></p>
+                                <p>{{artist}}</p>
+                                <p>{{description}}</p>
+                                {{#if audio_guide includeZero=true}}
+                                <b>(Audio guide)</b>
+                                {{/if}}</p>
+                            </li>
+
+                        </ul>
+                        {{/each}}
+                        {{/with}}
+
+                        {{#with details.guide}}
+                        <p>Guide: {{name}}</p>
+                        <p>Language: {{language}}</p>
+                        <p>Rating:{{rating}}</p>
+                        {{/with}}
+
+                    </li>
+                    {{/each}}
+                </ul>
         </section>
     </main>
     {{/with}}
