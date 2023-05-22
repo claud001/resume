@@ -1,0 +1,65 @@
+<div>
+    <h1><span class="badge bg-secondary">{{name}}</span></h1>
+
+    <div>
+        <ul>
+            {{#each users}}
+            <div class="alert alert-info" role="alert">
+                <li> <b>Users:</b> {{> userinfo}}</li>
+            </div>
+
+            <ul>
+                {{#each friends}}
+                <div class="alert alert-success" role="alert">
+                    <li> <b>Friends:</b> {{> userinfo}}</li>
+                </div>
+
+                <ul>
+                    {{#each mutual_friends}}
+                    <div class="alert alert-primary" role="alert">
+                        <li><b>Mutual_friends:</b> {{> userinfo}}</li>
+                    </div>
+
+                    <ul>
+                        {{#each mutual_friends}}
+                        <div class="alert alert-dark" role="alert">
+                            <li> <b>--- Mutual_friends:</b>{{> userinfo}}</li>
+                        </div>
+
+                        {{/each}}
+                    </ul>
+                    {{/each}}
+                </ul>
+                {{#each groups}}
+                <div class="alert alert-danger" role="alert">
+                    <p><b>2 Groups:</b> {{id}}, {{name}}, {{description}}</p>
+                </div>
+
+                {{#each members}}
+                <div class="alert alert-warning" role="alert">
+                    <p><b> 2 Members:</b> {{> userinfo}}</p>
+                </div>
+
+                {{/each}}
+                {{/each}}
+
+                {{/each}}
+            </ul>
+
+            {{#each groups}}
+            <div class="alert alert-secondary" role="alert">
+                <p><b>Groups:</b> {{id}}, {{name}}, {{description}}</p>
+            </div>
+
+            {{#each members}}
+            <div class="alert alert-warning" role="alert">
+                <p><b> Members:</b> {{> userinfo}}</p>
+            </div>
+
+            {{/each}}
+            {{/each}}
+
+            {{/each}}
+        </ul>
+    </div>
+</div>
