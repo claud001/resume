@@ -14,19 +14,23 @@
         </div>
     </div>
     <h1 class="text-center pt-5">{{newsBlock.title}}</h1>
-    <div class="row">
+    <div class="row g-2 mb-4">
         {{#each newsBlock.cards}}
-        <div class="card col-3 text-bg-secondary g-2">
-            <div class="card-body">
-                <div class="card-header">{{title}}
-                    {{#if isTop}}
-                    <button class="badge rounded-pill btn btn-danger text-uppercase">top</button>
-                    {{/if}}
+        <div class="col-3">
+            <div class="card text-bg-dark">
+                <div class="card-header">
+                    <div class="card-title">{{title}}
+                    </div>
                     {{#if isNew}}
-                    <button class="badge rounded-pill btn btn-success text-uppercase">new</button>
+                    <span class="badge rounded-pill text-bg-success">NEW</span>
+                    {{/if}}
+                    {{#if isTop}}
+                    <span class="badge rounded-pill text-bg-danger">TOP</span>
                     {{/if}}
                 </div>
-                <div>{{description}}</div>
+                <div class="card-body">
+                    <p>{{description}}</p>
+                </div>
             </div>
         </div>
         {{/each}}
@@ -36,24 +40,15 @@
     <div class="nav nav-tabs">
         {{#each tabs}}
         <div class="nav-item">
-            <a href="#" class="nav-link">
-                {{text}}</a>
-            {{!-- {{#if isActive}}
-            <a href="#" class="nav-link active">
-                {{text}}</a>
-            {{#else}}
-            <a href="#" class="nav-link">
-                {{text}}</a>
-            {{/else}}
-            {{/if}} --}}
+            <span class="nav-link">
+                {{#if isDisabled}}Disable{{/if}}
+                {{#if isActive}} active text-dark{{/if}}
+                {{text}}</span>
         </div>
         {{/each}}
     </div>
 
-    <br>
-
-    <div class="row">
-
+    <div class="row g-2 my-4">
         {{#each cards}}
         <div class="card col-4 g-2">
             <img class="card-img-top" src="{{image}}" alt="{{title}}">
