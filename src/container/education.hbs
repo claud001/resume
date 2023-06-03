@@ -1,7 +1,7 @@
 <div class="m-5">
     {{#with main}}
-    <main>
-        <section>
+    <main class="row">
+        <section class="card col-5">
             {{> title data="My education:" big=true}}
             <ul>
                 {{#each education}}
@@ -13,7 +13,7 @@
                 {{/each}}
             </ul>
         </section>
-        <section>
+        <section class=" card col-5 m-2">
             {{> title data="My Certifikates:"}}
             <ul>
                 {{#each certifikates}}

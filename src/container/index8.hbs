@@ -1,0 +1,20 @@
+<main class="row g-5 m-3">
+    {{#with title}}
+    <h1 class="col-9">{{name}} {{surname}}</h1>
+    <div class="col-3 display-5"><b>{{project}}</b></div>
+    {{/with}}
+
+    {{#with main}}
+    <div class="card my-5">
+        <h2 class="card-title p-3">{{title}}</h2>
+        <p>{{text}}</p>
+    </div>
+    <div class="card row ms-1">
+        <div class="col-12 py-2 px-1">
+            {{#each buttons}}
+            <a class="btn btn-success text-capitalize my-2 mx-0 " href="{{link}}">{{text}}</a>
+            {{/each}}
+        </div>
+    </div>
+    {{/with}}
+</main>
