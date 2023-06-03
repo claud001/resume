@@ -2796,5 +2796,102 @@ router.get('/shopreview', function (req, res) {
 })
 
 // ================================================================
+
+//              ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/index8', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+  res.render('index8', {
+    layout: 'shop',
+    // ↙ сюди вводимо JSON дані
+
+    title: {
+      name: 'Sergiy',
+      surname: 'Kurylyak',
+      project: 'Resume',
+    },
+    main: {
+      title: 'Список сторінок',
+      text: [
+        'Тут вам потрібно написати інформацію про ваш проєкт. Поки що можна написати будь-який текст',
+      ],
+      buttons: [
+        {
+          text: 'Car',
+          link: 'http://localhost:3000/car',
+        },
+        {
+          text: 'education',
+          link: 'http://localhost:3000/education',
+        },
+        {
+          text: 'Facebook',
+          link: 'http://localhost:3000/facebook',
+        },
+        {
+          text: 'JS',
+          link: 'http://localhost:3000/js',
+        },
+        {
+          text: 'Mac',
+          link: 'http://localhost:3000/mac',
+        },
+        {
+          text: 'Person',
+          link: 'http://localhost:3000/person',
+        },
+        {
+          text: 'Program',
+          link: 'http://localhost:3000/program',
+        },
+        {
+          text: 'shopcart',
+          link: 'http://localhost:3000/shopcart',
+        },
+        {
+          text: 'shophome',
+          link: 'http://localhost:3000/shophome',
+        },
+        {
+          text: 'shoporder',
+          link: 'http://localhost:3000/shoporder',
+        },
+        {
+          text: 'shopprofile',
+          link: 'http://localhost:3000/shopprofile',
+        },
+        {
+          text: 'shopreview',
+          link: 'http://localhost:3000/shopreview',
+        },
+        {
+          text: 'skills',
+          link: 'http://localhost:3000/skills',
+        },
+        {
+          text: 'summary',
+          link: 'http://localhost:3000/summary',
+        },
+        {
+          text: 'task21',
+          link: 'http://localhost:3000/task21',
+        },
+        {
+          text: 'task22',
+          link: 'http://localhost:3000/task22',
+        },
+        {
+          text: 'task31',
+          link: 'http://localhost:3000/task31',
+        },
+        {
+          text: 'work',
+          link: 'http://localhost:3000/work',
+        },
+      ],
+    },
+  })
+})
+
+// ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router
